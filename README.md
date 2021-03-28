@@ -1,6 +1,6 @@
 # gnl
 
-The aim of this project is making a function that returns a line
+The aim of this project is making a function that **returns a line**
 ending with a newline, read from a file descriptor.
 
 ### Function Prototype
@@ -8,19 +8,31 @@ ending with a newline, read from a file descriptor.
 int	get_next_line(int fd, char **line);
 ```
 
-Your program must compile with the flag -D BUFFER_SIZE=xx. which will be used as the buffer size for the read calls in your get_next_line.
+## Usage:
 
-gcc tests/main_stdin.c -Wall -Wextra -Werror -D BUFFER_SIZE=32 get_next_line.c get_next_line_utils.c
+You can just call the fuction in your main in a loop, which will allow you to read the text
+available on a file descriptor one line at a time until the EOF.
 
-./a.out
+or:
+
+Compile with the flag -D BUFFER_SIZE=xx. e.g:
+
+`gcc main_stdin.c -Wall -Wextra -Werror -D BUFFER_SIZE=32 get_next_line.c get_next_line_utils.c && ./a.out`
 
 
-## Points to understand in GNL
+BUFFER_SIZE=xx ill be used as the buffer size for the read calls in your get_next_line (if you don't emphasize it in compilation, the program will will use the default defined buffer size. 
 
-According to our GNL subject *Calling your function get_next_line in a loop will then allow you to read the text
-available on a file descriptor one line at a time until the EOF*
+main_stdin.c - is the file to read from.
 
-Call GNL from the main
+### Return value
+ | Value | Description         |
+ |-----------|----------------------|
+ |  1| A line has been read |
+ |  0| EOF has been reached |
+ |  -1| An error happened |
+
+
+### Calling get_next_line from the main example:
 
 ```c
 int main(int argc, char **argv)
@@ -58,10 +70,5 @@ This next line will return an integer that will be used as a parameter for the g
 fd = open(argv[1], O_RDONLY);
 get_next_line function will return an integer that will be taken to evaluate all the lines until the file ends.
 
-Return value
-Value	Description
-1	A line has been read
-0	EOF has been reached
--1	An error happened
 
 
