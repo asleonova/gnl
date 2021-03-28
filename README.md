@@ -65,10 +65,12 @@ int main(int argc, char **argv)
 	}
 ```
   
-This next line will return an integer that will be used as a parameter for the get_next_line function.
-
+This next line will return an integer that will be used as a parameter for the **get_next_line** function.
+```c
 fd = open(argv[1], O_RDONLY);
-get_next_line function will return an integer that will be taken to evaluate all the lines until the file ends.
+```
+**get_next_line** function returns an **integer** that will be taken to evaluate all the lines until the file ends.
+
 
 
 
