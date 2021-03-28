@@ -4,7 +4,7 @@ The aim of this project is making a function that returns a line
 ending with a newline, read from a file descriptor.
 
 Function Prototype
-`int	get_next_line(int fd, char **line);`
+`<int	get_next_line(int fd, char **line);>`
 
 Your program must compile with the flag -D BUFFER_SIZE=xx. which will be used as the buffer size for the read calls in your get_next_line.
 
